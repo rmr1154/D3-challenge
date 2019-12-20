@@ -189,7 +189,6 @@ d3.csv("assets/data/data.csv").then(function (stateData, err) {
     // append y axis
     var yAxis = chartGroup.append("g")
         .classed("y-axis", true)
-        //.attr("transform", `translate(0, ${height})`)
         .call(leftAxis);
 
 
@@ -204,7 +203,7 @@ d3.csv("assets/data/data.csv").then(function (stateData, err) {
         .append("circle")
         .attr("cx", d => xLinearScale(d[chosenXAxis]))
         .attr("cy", d => yLinearScale(d[chosenYAxis]))
-        .attr("r", 10)
+        .attr("r", 12)
         //.attr("fill", "royalblue")
         .attr("opacity", ".8")
         .classed("stateCircle", true);
@@ -214,14 +213,13 @@ d3.csv("assets/data/data.csv").then(function (stateData, err) {
         .append("text")
         .attr("x", d => xLinearScale(d[chosenXAxis]))
         .attr("y", d => yLinearScale(d[chosenYAxis]))
-        //.attr("r", 10)
         .classed("stateText", true)
         .text(d => d.abbr);
 
 
 
 
-    // Create group for  2 x- axis labels
+    // Create group for  x axis labels
     var XlabelsGroup = chartGroup.append("g")
         .attr("transform", `translate(${width / 2}, ${height + 20})`)
         .classed("aText", true);
@@ -247,7 +245,7 @@ d3.csv("assets/data/data.csv").then(function (stateData, err) {
         .classed("inactive", true)
         .text("Median Income");
 
-    // Create group for  2 x- axis labels
+    // Create group for  y axis labels
     // append y axis
     var YlabelsGroup = chartGroup.append("g")
         .attr("transform", `translate(${0 - margin.left}, ${height / 2})`)
